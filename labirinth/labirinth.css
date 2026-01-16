@@ -14,10 +14,11 @@ body {
 }
 
 .labyrinth-canvas-wrapper {
-    width: 100%;
+    width: 95%;
     aspect-ratio: 1 / 1;
-    margin-block: 30px;
-    margin-bottom: 20px;
+    margin-block: 40px;
+    margin-bottom: 30px;
+    margin-inline: auto;
     border: solid 1px #2b2b2b;
 }
 
@@ -212,7 +213,7 @@ a {
   }
 
   .labyrinth-canvas-wrapper {
-    margin-left: 10%;
+    margin-left: 5%;
     width: auto;
     height: auto;
     aspect-ratio: 1/1;
@@ -229,7 +230,7 @@ a {
   }
 
   .controls {
-    padding-left: 5%;
+    padding-left: 0;
     padding-right: 5%;
     margin-bottom: auto;
     margin-top: 15%;
