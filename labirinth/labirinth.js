@@ -362,4 +362,17 @@ suggestionBtn.addEventListener('click', () => {
   const hint = hints.find(h => h.id === lastHintId);
   if (hint) showHint(hint);
 });
+
+// ===============================
+// OVERLAY INTRO CONTROL
+// ===============================
+const introEl = document.getElementById('intro');
+const closeIntroBtn = document.getElementById('close-intro');
+
+if (introEl && closeIntroBtn) {
+  // l'overlay appare già al caricamento, quindi non serve rimuovere hidden
+  closeIntroBtn.addEventListener('click', () => {
+    introEl.classList.add('hidden');
+  });
+}
 });
