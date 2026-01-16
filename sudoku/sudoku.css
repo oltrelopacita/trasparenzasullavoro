@@ -231,6 +231,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, button, div {
     letter-spacing: 1px;
 }
 
+#tooltip {
+    font-weight: 500;
+}
+
 /* Tooltip visible state controlled by JS */
 .suggestion-tooltip.show {
     opacity: 1;
