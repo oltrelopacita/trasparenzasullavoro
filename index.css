@@ -526,4 +526,9 @@ a {
             .info-arrow {
                 transform: rotate(0deg);
             }
+
+            .sec_title:hover .cont_exp {
+                background-color: inherit;
+                color: inherit;
+            }
         }
