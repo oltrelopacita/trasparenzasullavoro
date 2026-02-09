@@ -14,12 +14,11 @@ body {
 }
 
 .labyrinth-canvas-wrapper {
-    width: 95%;
+    width: 99%;
     aspect-ratio: 1 / 1;
-    margin-block: 20px;
-    margin-bottom: 20px;
-    margin-inline: auto;
+    margin-top: 10%;
     border: solid 1px #2b2b2b;
+    touch-action: none;
 }
 
 #canvas {
@@ -67,7 +66,7 @@ body {
 }
 
 .controls {
-  display: flex;
+  display: none;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
@@ -157,6 +156,7 @@ body {
   border: none;
   font-size: 18px;
   cursor: pointer;
+  padding: 5px;
 }
 
 /* ==========================
@@ -172,6 +172,8 @@ body {
   padding: 3px 5px;
   border-radius: 3px;
   z-index: 15;
+  width: auto;
+  height: auto;
 }
 
 a {
@@ -186,6 +188,88 @@ a {
   box-shadow: none;
   transition: 0.2s ease-in-out;
 }
+
+.intro-mobile {
+  display: block;
+}
+
+.intro-desktop {
+  display: none;
+}
+
+/* ==========================
+   INTRO OVERLAY
+   ========================== */
+   #intro {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  #intro.hidden {
+    display: none;
+  }
+  
+  .intro-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    width: 75%;
+    height: auto;
+    background-color: #f6f6f6;
+    padding: 15px 20px;
+    border: 1px #2b2b2b solid;    
+    border-radius: 25px;
+    align-content: center;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    line-height: 18px;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  
+  .intro-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .intro-title {
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  
+  .close-intro {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  .close-intro:hover, .close-hint:hover {
+    cursor: pointer;
+  }
+  
+  .intro-text {
+    font-weight: 500;
+  }
 
 
 
@@ -212,11 +296,16 @@ a {
     width: 52.5%;
   }
 
+  .hint-text {
+    font-weight: 500;
+  }
+
   .labyrinth-canvas-wrapper {
     margin-left: 5%;
     width: auto;
     height: auto;
     aspect-ratio: 1/1;
+    margin-block: 50px;
   }
 
   .testata {
@@ -235,8 +324,9 @@ a {
     margin-bottom: auto;
     margin-top: 15%;
     gap: 0px;
-    margin-inline: 0;
+    margin-inline: auto;
     width: 20%;
+    display: flex;
   }
 
   .direction {
@@ -258,78 +348,20 @@ a {
   background-color: #2b2b2b;
   color: #f6f6f6;
 }
-}
 
-/* ==========================
-   INTRO OVERLAY
-   ========================== */
-#intro {
-  position: absolute;
-  bottom: 10%;
-  left: 0;
-  width: 100%;
-  height: 90%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
-
-#intro.hidden {
+.intro-mobile {
   display: none;
+  font-weight: 500;
+}
+
+.intro-desktop {
+  display: block;
+  font-weight: 500;
 }
 
 .intro-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  width: 70%;
-  height: auto;
-  background-color: #f6f6f6;
-  padding: 15px 20px;
-  border: 1px #2b2b2b solid;    
-  border-radius: 25px;
-  align-content: center;
-  text-align: left;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  line-height: 18px;
-  font-weight: 500;
-  font-size: 15px;
+  width: 50%;
+  gap: 10px;
+}
 }
 
-.intro-head {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#intro-title {
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.5);
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.close-intro {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.close-intro:hover, .close-hint:hover {
-  cursor: pointer;
-}
-
-.intro-text {
-  font-weight: 500;
-}

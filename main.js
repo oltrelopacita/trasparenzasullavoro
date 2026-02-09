@@ -83,20 +83,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 primaParte.style.opacity = 1;
             }, 1000);
 
-            // Dopo 1.5s, fai sparire primaParte e mostra secondaParte
-            setTimeout(() => {
-                primaParte.style.opacity = 0;
-            }, 8000);
-
-            setTimeout(() => {
-                primaParte.style.display = 'none';
-                secondaParte.style.display = 'flex';
-            }, 8500);
-
-            setTimeout(() => {
-                secondaParte.style.opacity = 1;
-            }, 9500)        
+            // Dopo 1.5s, fai sparire primaParte e mostra secondaParte        
     }
+
+    const nextTraspBtn = document.getElementById('nextTrasp');
+if (nextTraspBtn) {
+    nextTraspBtn.addEventListener('click', () => {
+        if (!primaParte || !secondaParte) return;
+    
+        // 1. fai sparire visivamente la prima parte
+        primaParte.style.opacity = 0;
+    
+        // 2. dopo la dissolvenza (es. 500ms), nascondi primaParte e mostra secondaParte
+        setTimeout(() => {
+            primaParte.style.display = 'none';
+            secondaParte.style.display = 'flex';
+            secondaParte.style.opacity = 0; // parte trasparente
+        }, 500); 
+    
+        // 3. subito dopo (piccolo timeout), fai apparire la seconda parte in dissolvenza
+        setTimeout(() => {
+            secondaParte.style.opacity = 1;
+        }, 1000); // 50ms dopo che display è stato messo a flex
+    });
+}
 
     function showTimerMessage(triggerType) {
         const messageEl = document.getElementById("finalMessage");

@@ -6,45 +6,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Inserisci qui il tuo testo con righe di 0 e 1
 const asciiMaze = `
-11000000000000000000000000000000000000000
-11111111110111110111110101111101111111010
+00000000000000000000000000000000000000000
+01111111110111110111110101111101111111110
 01010000010101000101000101000101000000010
-01011101011101110101011111010111111101110
+01011101111111110101011111010111111101110
 01000001010100000001010000010100000000010
-01110101010111011111111111011111110101110
+01111101010111011111111111011111110101110
 01000101010101000100010000000101010100010
-01110111010101111101111101110101010111110
-00010100000001000000010001000000000101010
-01010111111101110111110111010111011101010
-01000001000100010001000100010100000101000
+01110111011101111101111101111101010111110
+00010100000001000000010001010001000101010
+01110111111101110111111111010111111101010
+01000001000100011101000100010100000101010
 01110101011111110101011101011111011101110
-00010101000101000100000101010100000100010
-01111111110101111111010111110111111111010
+00010101000101000101000101010100000100010
+01111111110101111111010111110111111111010 
 01000001000001010100010001000000000001000
-01010101111111010111111111011111111111010
+01010101111111010111111111111111111111010
 01010101000001000000010000000101000000010
 01110111011111110111011101110101111111010
 00010000000101000001010101010101010000010
 01110111110101110101010111011101011101010
 00010001000000000101010100010001000101010
-01111111011111011111110111010101011111010
+01111111011111011111110111010101111111010
 01010001010100000100000001010101010000010
 01010111110111110111010111010111011111010
-00000101000001000100010000000100000000010
-01111101010111011111110111111101011111110
+01000101000001000100010000010100000000010
+01111101010111011111111111111101011111110
 01000100010001000000010000000001000101000
 01110101111101110101111111011101010101110
 00010101000001010100000001010001010101000
-01010111111101010101011111011111111101110
+01110111111101010101011111011111111101110
 01000001010101000101000000000101000000010
-01011101010101110101011101011101111111110
+01011101010101110101011111011101111111110
 01000100010000010101010001000001000001000
 01111101010101110111110101111101111101010
 01000101000101010001010101000101000001010
 01011111111111010101011101011111011111110
 01000100010000010101000100010100000100010
 01010101110111111111110111010111010111010
-00010100010000000100010001010001010101010
+00010100010000000000010001010001010101010
 0111111101111111110111111111110101110101
 0000000000000000000000000000000000000001
 `;
@@ -121,6 +121,38 @@ const hintsNonTransparent = [
   { id: 16, x: 37, y: 25, text: 'Prosegui nel percorso.' },
   { id: 19, x: 37, y: 31, text: "Cerca l'esterno del labirinto." },
   { id: 17, x: 37, y: 35, text: "Un'ultima svolta." },
+  //inutili
+  { id: 18, x: 23, y: 15, text: "Prosegui fino alla prossima svolta." },
+  { id: 19, x: 25, y: 13, text: "Gira." },
+  { id: 20, x: 29, y: 11, text: "Ripeti l'ultima svolta." },
+  { id: 21, x: 31, y: 9, text: "Addentrati nel labirinto." },
+  { id: 22, x: 35, y: 9, text: "Qui non andare dritto." },
+  { id: 23, x: 28, y: 15, text: "Aspetta la curva poi svolta." },
+  { id: 24, x: 31, y: 17, text: "Segui il percorso." },
+  { id: 25, x: 27, y: 19, text: "Segui il muro destro." },
+  { id: 26, x: 23, y: 19, text: "Ripeti la svolta di tre indicazioni fa." },
+  { id: 27, x: 21, y: 17, text: "Prosegui nel percorso." },
+  { id: 28, x: 17, y: 21, text: "Segui il muro sinistro." },
+  { id: 29, x: 21, y: 25, text: "Sei sulla strada giusta?" },
+  { id: 30, x: 27, y: 25, text: "Gira solo quando la strada va in alto." },
+  { id: 31, x: 31, y: 21, text: "Svolta a sinistra." },
+  { id: 32, x: 17, y: 13, text: "Addentrati nel labirinto." },
+  { id: 33, x: 17, y: 10, text: "Vai verso l'interno del labirinto." },
+  { id: 34, x: 21, y: 9, text: "Segui il muro destro." },
+  { id: 35, x: 27, y: 7, text: "Vai dove credi." },
+  { id: 36, x: 29, y: 5, text: "Sarai sulla strada corretta?" },
+  { id: 37, x: 31, y: 9, text: "Gira e prosegui." },
+  { id: 38, x: 13, y: 7, text: "Svolta ancora." },
+  { id: 39, x: 11, y: 3, text: "Non andare dritto." },
+  { id: 40, x: 5, y: 7, text: "Sarai sulla strada giusta?" },
+  { id: 41, x: 1, y: 5, text: "Svolta a destra." },
+  { id: 42, x: 3, y: 21, text: "Svolta a sinistra." },
+  { id: 43, x: 1, y: 25, text: "Ripeti la svolta fatta due indicazioni fa." },
+  { id: 44, x: 1, y: 33, text: "Svolta." },
+  { id: 45, x: 9, y: 35, text: "Segui il muro." },
+  { id: 44, x: 35, y: 13, text: "Segui la strada." },
+  { id: 45, x: 39, y: 7, text: "Svolta a destra." },
+  { id: 46, x: 29, y: 3, text: "Sei sulla strada giusta?" },
 ];
 
 const hintsTransparent = [
@@ -140,6 +172,7 @@ const hintsTransparent = [
   { id: 16, x: 37, y: 25, text: 'Continua verso il basso.' },
   { id: 19, x: 37, y: 31, text: 'Vai ancora in basso.' },
   { id: 17, x: 37, y: 35, text: 'Ora vai a destra e poi in basso fino in fondo.' },
+  { id: 18, x: 17, y: 13, text: "Vai a sinistra." },
 ];
 
 const hints = mode === "trasparent" ? hintsTransparent : hintsNonTransparent;
@@ -285,15 +318,38 @@ function handleKey(e) {
 }
 
 // ===============================
-// CONTROLLI
+// SWIPE MOBILE
 // ===============================
+let touchStartX = 0;
+let touchStartY = 0;
 
-document.getElementById('up').onclick = () => move(0, -1);
-document.getElementById('down').onclick = () => move(0, 1);
-document.getElementById('left').onclick = () => move(-1, 0);
-document.getElementById('right').onclick = () => move(1, 0);
+canvas.addEventListener('touchstart', (e) => {
+  const t = e.touches[0];
+  touchStartX = t.clientX;
+  touchStartY = t.clientY;
+}, { passive: true });
 
-window.addEventListener('keydown', handleKey);
+canvas.addEventListener('touchend', (e) => {
+  const t = e.changedTouches[0];
+  const dx = t.clientX - touchStartX;
+  const dy = t.clientY - touchStartY;
+
+  // soglia minima per evitare swipe accidentali
+  if (Math.max(Math.abs(dx), Math.abs(dy)) < 30) return;
+
+  if (Math.abs(dx) > Math.abs(dy)) {
+    // swipe orizzontale
+    dx > 0 ? move(1, 0) : move(-1, 0);
+  } else {
+    // swipe verticale
+    dy > 0 ? move(0, 1) : move(0, -1);
+  }
+});
+
+
+if (window.matchMedia('(pointer: fine)').matches) {
+  window.addEventListener('keydown', handleKey);
+}
 
 
 
