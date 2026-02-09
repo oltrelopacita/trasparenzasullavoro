@@ -516,7 +516,7 @@ a {
                 width: 17px;
                 height: auto;
                 color: #2b2b2b;
-                
+                display: block;
             }
 
             .exp-arrow {
