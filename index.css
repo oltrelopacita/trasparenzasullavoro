@@ -509,7 +509,7 @@ a {
                 align-items: center;
                 justify-content: space-between;
                 gap: 8px;
-                
+                pointer-events: none;
             }
 
             .cont_exp svg {
