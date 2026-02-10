@@ -609,9 +609,11 @@ header {
     gap: 30px;
 }
 
-.hamburger a, div {
-  font-weight: 700;
+.hamburger a {
+  font-weight: 500;
 }
+
+
 
 .hamburger-menu div:hover {
     cursor: pointer;

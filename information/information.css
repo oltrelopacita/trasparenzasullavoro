@@ -788,6 +788,14 @@ a {
   display: block;
 }
 
+.nomi {
+  width: 90%;
+}
+
+.chi {
+  width: 85%;
+}
+
 @media (max-width: 768px) {
 
   header {
@@ -1254,6 +1262,14 @@ button a {
   flex-direction: column;
   gap: 20px;
   width: 99%;
+}
+
+.nomi {
+  width: 95%;
+}
+
+.chi {
+  width: 100%;
 }
 
 }

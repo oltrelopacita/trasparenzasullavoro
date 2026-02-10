@@ -65,32 +65,6 @@ body {
   color: #2b2b2b;
 }
 
-.controls {
-  display: none;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 85%;
-  margin-inline: auto;
-}
-
-.direction {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 30%;
-  height: 50px;
-}
-
-.direction button {
-  height: 40px;
-  width: 40px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* ==========================
    HINT OVERLAY
@@ -180,15 +154,6 @@ a {
   text-decoration: none;
 }
 
-.direction button {
-  background-color: #f6f6f6;
-  color: #2b2b2b;
-  border-radius: 50px;
-  border: solid 1px #2b2b2b;
-  box-shadow: none;
-  transition: 0.2s ease-in-out;
-}
-
 .intro-mobile {
   display: block;
 }
@@ -271,7 +236,9 @@ a {
     font-weight: 500;
   }
 
-
+  .controls {
+    display: none;
+  }
 
 @media screen and (min-width: 1024px) {
   .app {
@@ -318,21 +285,6 @@ a {
     line-height: 1.2;
   }
 
-  .controls {
-    padding-left: 0;
-    padding-right: 5%;
-    margin-bottom: auto;
-    margin-top: 15%;
-    gap: 0px;
-    margin-inline: auto;
-    width: 20%;
-    display: flex;
-  }
-
-  .direction {
-    width: auto;
-    gap: 0px;
-  }
 
   .triangle {
     position: absolute;
@@ -344,10 +296,6 @@ a {
     z-index: 50;
 }
 
-.direction button:hover {
-  background-color: #2b2b2b;
-  color: #f6f6f6;
-}
 
 .intro-mobile {
   display: none;
@@ -362,6 +310,59 @@ a {
 .intro-box {
   width: 50%;
   gap: 10px;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 50px 50px 50px; /* 3 colonne */
+  grid-template-rows: 50px 50px 50px;    /* 3 righe */
+  justify-content: center;               /* centra orizzontalmente */
+  align-items: center;                   /* centra verticalmente */
+  gap: 10px;                             /* spazio tra i bottoni */
+  width: auto;
+  margin: 50px auto;                     /* centra tutto il contenitore */
+}
+
+#up {
+  grid-column: 2; /* centro */
+  grid-row: 1;    /* prima riga */
+}
+
+#left {
+  grid-column: 1; /* prima colonna */
+  grid-row: 2;    /* seconda riga */
+}
+
+#right {
+  grid-column: 3; /* terza colonna */
+  grid-row: 2;    /* seconda riga */
+}
+
+#down {
+  grid-column: 2; /* centro */
+  grid-row: 3;    /* terza riga */
+}
+
+.controls button {
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: solid 1px #2b2b2b;
+  background-color: #f6f6f6;
+  color: #2b2b2b;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  box-shadow: none;
+
+}
+
+.controls button:hover {
+  background-color: #2b2b2b;
+  color: #f6f6f6;
 }
 }
 

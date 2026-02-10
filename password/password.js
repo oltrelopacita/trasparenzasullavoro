@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const now = new Date();
     const giorno = ["7", "1", "2", "3", "4", "5", "6"];
     const giornoCorrente = giorno[now.getDay()];
-    const presidUsa = "trump";
+    const presidUsa = "dante";
 
     function validatePassword() {
         const passwordStatus = document.getElementById('passwordStatus');
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         if (somma !== 20) { addRule("La somma di tutte le cifre deve fare 20. Dettaglio insignificante, no?"); return; }
         if (!/<3/.test(pwd)) { addRule("Inserisci un cuore (<3)."); return; }
-        if (!pwd.toLowerCase().includes(presidUsa)) { addRule("Deve contenere il cognome del presidente degli Stati Uniti. Si serve anche questo."); return; }
+        if (!pwd.toLowerCase().includes(presidUsa)) { addRule("Deve contenere il nome dell'autore della Divina Commedia. Si serve anche questo."); return; }
         if (!pwd.toLowerCase().includes(giornoCorrente)) { addRule("Aggiungi il numero da 1 a 7 corrispondente al giorno della settimana di oggi. Niente di complicato."); return; }
         if (!/[0-9]$/.test(pwd)) { addRule("Deve terminare con un numero. Non pensavo fosse fondamentale dirtelo prima."); return; }
         const last = pwd[pwd.length - 1];
