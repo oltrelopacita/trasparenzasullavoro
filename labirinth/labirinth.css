@@ -291,8 +291,8 @@ a {
     bottom: 0;
     right: 0;
     height: auto;
-    margin-bottom: 5%;
-    margin-right: 2.5%;
+    margin-bottom: 4%;
+    margin-right: 6.5%;
     z-index: 50;
 }
 
@@ -314,8 +314,8 @@ a {
 
 .controls {
   display: grid;
-  grid-template-columns: 50px 50px 50px; /* 3 colonne */
-  grid-template-rows: 50px 50px 50px;    /* 3 righe */
+  grid-template-columns: 40px 40px 40px; /* 3 colonne */
+  grid-template-rows: 40px 40px 40px;    /* 3 righe */
   justify-content: center;               /* centra orizzontalmente */
   align-items: center;                   /* centra verticalmente */
   gap: 10px;                             /* spazio tra i bottoni */
@@ -363,6 +363,10 @@ a {
 .controls button:hover {
   background-color: #2b2b2b;
   color: #f6f6f6;
+}
+
+.hint-box {
+  width: 50%;
 }
 }
 

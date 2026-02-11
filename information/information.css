@@ -428,6 +428,7 @@ nav button:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    hyphens: auto;
 }
 
 .desc_menu p {
@@ -470,6 +471,9 @@ nav button:hover {
     font-weight: 300;
     margin: 0;
     line-height: 24px;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
 }
 
 .min {
@@ -608,6 +612,7 @@ a {
     font-size: 16px;
     line-height: 20px;
     font-weight: 400;
+    hyphens: auto;
 }
 
 .cont_pratica.open {
@@ -888,7 +893,7 @@ a {
 
   .about {
     width: 86%;
-    height: 92vh;
+    height: 85vh;
     padding: 35px;
 
     position: fixed;
@@ -988,6 +993,7 @@ a {
     width: 100%;
     font-size: 16px;
     line-height: 22px;
+    hyphens: auto;
   }
 
   .text_container {
@@ -1006,8 +1012,8 @@ a {
 
   /* icona hamburger */
   .hamburger-icon {
-      width: 32px;
-      height: 20px;
+      width: 25px;
+      height: 15px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;

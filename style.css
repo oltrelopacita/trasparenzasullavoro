@@ -286,15 +286,23 @@ button:hover {
 
 #nextTrasp {
   position: absolute;
-  top: 53%;
+  top: 49%;
   right: 10%;
   z-index: 300; /* già c’è, ma confermiamo */
 }
 
+#nextTrasp svg {
+  transform: rotate(-90deg);
+  transform-origin: center center;
+}
+
+button {
+  box-shadow: none;
+}
 
 .contTrasp {
   width: 85%;
-  height: 80%;
+  height: 85%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -406,7 +414,7 @@ button:hover {
 
 .cont1 {
   position: absolute;
-  bottom: 20vw;
+  bottom: 30vw;
   width: 85%;
   height: 80%;
   display: flex;
@@ -439,6 +447,7 @@ button:hover {
   align-items: center;
   justify-content: center;
 color: #f6f6f6;
+
 }
 
 .bottonegiga svg {
@@ -447,12 +456,16 @@ color: #f6f6f6;
   border-width: 0.8px;
   background-color: #2b2b2b;
   color: #f6f6f6;
+  transform: rotate(-90deg);
+    transform-origin: center center;
 }
 
 .bottonegiga-link {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 42%;
 }
 
 .contQuit {
@@ -555,6 +568,10 @@ header {
 
 .arrow-btn svg {
   pointer-events: none;
+}
+
+.hamburger {
+  font-weight: 500;
 }
 
 @media screen and (min-width: 1024px) {
@@ -714,7 +731,7 @@ header {
 .uptext {
   font-size: 60px;
   line-height: 1.2;
-  width: 50%; 
+  width: 54%; 
 }
 
 .down {
@@ -792,10 +809,22 @@ header {
   font-size: 60px;
   line-height: 1.2;
   width: 23%;
+  margin: 0;
+}
+
+.interbody {
+  display: block;
 }
 
 .cont1 {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  height: 65vh;
   width: 85%;
+  top: 20%;
+  margin-left: 5%;
+  position: relative;
 }
 
 body.interbody .dueminuti {
@@ -807,6 +836,9 @@ body.interbody .dueminuti {
   display: flex;
   justify-content: flex-end; /* spinge tutto a destra */
   width: 100%; /* occupa tutta la larghezza del cont1 */
+  position: absolute;
+  top: 48%;
+  
 }
 
 body.interbody .bottonegiga {
@@ -843,7 +875,7 @@ body.interbody .bottonegiga svg {
 
 #nextTrasp {
   position: absolute;
-  top: 50%;
+  top: 70%;
   right: 10%;
   transform: translateY(-50%);
 }
