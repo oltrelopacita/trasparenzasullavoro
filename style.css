@@ -309,6 +309,10 @@ button {
   padding-bottom: 15vw;
 }
 
+.contTrasp.nontrasp {
+  height: 80%;
+}
+
 .uptext {
   font-size: 40px;
   line-height: 42px;
@@ -458,6 +462,8 @@ color: #f6f6f6;
   color: #f6f6f6;
   transform: rotate(-90deg);
     transform-origin: center center;
+    width: 200px;
+    height: 200px;
 }
 
 .bottonegiga-link {
@@ -849,6 +855,8 @@ body.interbody .bottonegiga {
 
 body.interbody .bottonegiga svg {
   border-radius: 300px;
+  width: 300px;
+  height: 300px;
 }
 
 #quitOverlay {
