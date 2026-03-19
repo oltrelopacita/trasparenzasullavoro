@@ -149,6 +149,10 @@ body, h1, h2, h3, h4, h5, h6, p, span, button, div {
 
 }
 
+.title-desktop {
+    display: none;
+}
+
 /* Number buttons next to the grid */
 .number-button {
     width: 55px;
@@ -361,5 +365,15 @@ a {
     .title {
         font-size: 60px;
         line-height: 1.2;
+    }
+
+    .title-desktop {
+        display: block;
+        width: 80%;
+    }
+
+
+    .title-mobile {
+        display: none;
     }
 }

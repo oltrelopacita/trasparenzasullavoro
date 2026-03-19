@@ -240,6 +240,10 @@ a {
     display: none;
   }
 
+  .title-desktop {
+    display: none;
+  }
+
 @media screen and (min-width: 1024px) {
   .app {
     flex-direction: row;
@@ -367,6 +371,15 @@ a {
 
 .hint-box {
   width: 50%;
+}
+
+.title-desktop {
+  display: block;
+  width: 80%;
+}
+
+.title-mobile {
+  display: none;
 }
 }
 

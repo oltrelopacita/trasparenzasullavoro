@@ -54,6 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const rulesContainer = document.getElementById("rules");
+    rulesContainer.textContent = "Inizia a scrivere la password per vedere le istruzioni.";
     
 
     if (createBtn) {
@@ -157,6 +158,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (passwordStatus) { passwordStatus.textContent = "Password disponibile"; }
 
         createBtn.disabled = false;
+
+        if (rulesContainer.children.length === 0) {
+            rulesContainer.textContent = "Tutte le regole sono soddisfatte!";
+        }
     }
 
     function addRule(text) {

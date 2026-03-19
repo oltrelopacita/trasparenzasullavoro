@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let TASK_DURATION;
 
     if (window.location.pathname.includes('sudoku')) {
-        TASK_DURATION = 60000; // 1 minuto
+        TASK_DURATION = 90000; // 1 minuto
     } else if (window.location.pathname.includes('password')) {
         TASK_DURATION = 180000; // 3 minuti
     } else {
