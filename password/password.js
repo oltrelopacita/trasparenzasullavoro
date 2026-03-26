@@ -54,7 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const rulesContainer = document.getElementById("rules");
-    rulesContainer.textContent = "Inizia a scrivere la password per vedere le istruzioni.";
+    if (rulesContainer) {
+        rulesContainer.textContent = "Inizia a scrivere la password per vedere le istruzioni.";
+    }
+    
     
 
     if (createBtn) {
