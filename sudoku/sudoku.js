@@ -111,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     const traspSuggerimenti = [
-        "Questa è la griglia di uno sudoku. Risolvi il gioco usando numeri da 1 a 4, diversi per righe, colonne e riquadri 2x2."
+        "Questa è la griglia di un sudoku. Risolvi il gioco usando numeri da 1 a 4, diversi per righe, colonne e riquadri 2x2."
     ];
 
     const traspSuggestionBtn = document.getElementById('traspSuggestion');
