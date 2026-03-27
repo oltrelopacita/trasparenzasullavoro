@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Imposta l'icona su "hide" all'avvio
     if (togglePassword) {
-        togglePassword.classList.add("hide");
+        togglePassword.classList.add("eye");
     }
 
     if (passwordInput && togglePassword) {
