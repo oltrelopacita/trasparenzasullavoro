@@ -365,7 +365,7 @@ button {
 .linkfinal div,.linkfinal a {
   width: 100%;
   height: 45%;
-  border-radius: 40px;
+  border-radius: 5vh;
   border-width: 0.8px;
   border-style: solid;
   border-color: #f6f6f6;

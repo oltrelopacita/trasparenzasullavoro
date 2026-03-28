@@ -97,7 +97,6 @@ const suggestionBtn = document.getElementById('indication-btn');
 
 let isHintOpen = false;
 let lastHintId = null;
-const shownHints = new Set();
 
 // ===============================
 // HINT LIST PER MODALITA'
@@ -243,7 +242,7 @@ draw();
 // ===============================
 
 function showHint(hint) {
-  if (isHintOpen) return;
+  if (isHintOpen) closeHint();
 
   hintTextEl.textContent = hint.text;
   hintEl.classList.remove('hidden');
@@ -257,13 +256,12 @@ function closeHint() {
 }
 
 function checkHintTrigger(x, y) {
-  if (isHintOpen) return;
+  if (isHintOpen) closeHint();
 
   const hint = hints.find(h => h.x === x && h.y === y);
-  if (!hint) return;
-  if (shownHints.has(hint.id)) return;
 
-  shownHints.add(hint.id);
+  if (!hint) return;
+
   showHint(hint);
 }
 
@@ -282,7 +280,7 @@ function canMove(x, y) {
 
 function move(dx, dy) {
 
-  if (isHintOpen) return;
+  if (isHintOpen) closeHint();
 
   const nx = player.x + dx;
   const ny = player.y + dy;
