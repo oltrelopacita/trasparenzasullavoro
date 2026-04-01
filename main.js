@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (window.location.pathname.includes('password')) {
         TASK_DURATION = 180000; // 3 minuti
     } else {
-        TASK_DURATION = 120000; // fallback
+        TASK_DURATION = 180000; // fallback
     }
     const pagineTask = [
         'password/password.html',
