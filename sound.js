@@ -11,7 +11,7 @@ function unlockAudioGlobal() {
   }).catch(() => {});
 }
 
-const clickSound = new Audio('/suoni/click4.wav');
+const clickSound = new Audio('suoni/click4.wav');
 clickSound.preload = 'auto';
 
 function unlockAudio() {
@@ -36,9 +36,9 @@ function playPluc() {
 }
 
 
-const timerTick = new Audio('/suoni/timer.wav');
+const timerTick = new Audio('suoni/timer.wav');
 timerTick.preload = 'auto';
-const timerTickUrgent = new Audio('/suoni/timer 10sec.wav');
+const timerTickUrgent = new Audio('suoni/timer 10sec.wav');
 timerTickUrgent.preload = 'auto';
 
 function playTimerTick() {
@@ -57,7 +57,7 @@ function playTimerTickUrgent() {
 
 
 
-const swooshSound = new Audio('/suoni/swoosh4.mp3');
+const swooshSound = new Audio('suoni/swoosh4.mp3');
 swooshSound.preload = 'auto';
 
 function playSwoosh() {
