@@ -21,8 +21,8 @@
                 <div>
                     <a href="../information/info_landing.html">Informazioni</a>
                 </div>
-                <div id="aboutBtn">About</div>
-                <div>Social</div>
+                <div id="aboutBtn" data-sound>About</div>
+                <div data-sound>Social</div>
                 <div class="quit_hamburger">
                     <div>
                         <svg class="hamburger-close" width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
     </header>
     <div class="head">
         <h3>Task 3</h3>
-        <div id="quit" class="quit-button">
+        <div id="quit" class="quit-button" data-sound>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="30" height="30">
                 <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
                 <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
@@ -59,7 +59,7 @@
         <div class="testata">
             <div class="title title-mobile">Trova l'uscita</div>
             <div class="title title-desktop">Trova l’uscita dal labirinto seguendo <br>le indicazioni sbloccate</div>
-            <div class="triangle">
+            <div class="triangle" data-sound>
                 <svg id="indication-btn" width="90" height="90" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" cursor="pointer">
                     <circle cx="50" cy="50" r="45" fill="transparent" stroke="black" stroke-width="1"/>
                     <text x="50" y="55" text-anchor="middle" dominant-baseline="middle" font-size="60" font-family="INTER" fill="black" font-weight="100">?</text>
@@ -77,7 +77,7 @@
                 <div class="hint-box">
                     <div class="hint-head">
                         <div id="indic-title">INDICAZIONI</div>
-                        <div id="close-hint">
+                        <div id="close-hint" data-sound>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20">
                                 <line x1="18" y1="6" x2="6" y2="18" stroke="black" stroke-width="1" stroke-linecap="round"/>
                                 <line x1="6" y1="6" x2="18" y2="18" stroke="black" stroke-width="1" stroke-linecap="round"/>
@@ -90,10 +90,10 @@
             </div>
     
             <div id="controls" class="controls">
-                <button id="up">↑</button>
-                <button id="down">↓</button>
-                <button id="left">←</button>
-                <button id="right">→</button>
+                <button id="up" data-sound>↑</button>
+                <button id="down" data-sound>↓</button>
+                <button id="left" data-sound>←</button>
+                <button id="right" data-sound>→</button>
             </div>
         </div>
         
@@ -123,6 +123,7 @@
     </div>
     
 
+    <script src="/sound.js"></script>
     <script src="../main.js"></script>
     <script src="labirinth.js"></script>
 </body>

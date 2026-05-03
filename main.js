@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', unlockAudioGlobal, { once: true });
     // --- Determinazione durata task ---
     let TASK_DURATION;
 
@@ -130,6 +131,8 @@ if (nextTraspBtn) {
         const startTime = Date.now();
         const totalDuration = duration;
         let stopped = false;
+        let lastSecondPlayed = null;
+        let timerStarted = false;
 
         const interval = setInterval(() => {
             if (stopped) {
@@ -144,6 +147,24 @@ if (nextTraspBtn) {
             const remaining = Math.max(duration - elapsed, 0);
             const minutes = Math.floor(remaining / 60000);
             const seconds = Math.floor((remaining % 60000) / 1000);
+            const currentSecond = Math.floor(remaining / 1000);
+
+            if (!timerStarted) {
+                timerStarted = true;
+                lastSecondPlayed = currentSecond;
+                return;
+            }
+
+            if (currentSecond !== lastSecondPlayed) {
+                lastSecondPlayed = currentSecond;
+
+                // ultimi 10 secondi -> suono urgente
+                if (currentSecond <= 9) {
+                    playTimerTickUrgent();
+                } else {
+                    playTimerTick();
+                }
+            }
 
             timerSpanEl.textContent = `${minutes}:${seconds.toString().padStart(2,'0')}`;
 
@@ -201,7 +222,7 @@ if (nextTraspBtn) {
             showTrasparentAnimation("password", "resolved");
             showTimerMessage("resolved");
         });
-    }
+    };
 
     // --- Timer trasparente ---
     const timerBarTrasp = document.getElementById('timerBarTrasp');
@@ -238,4 +259,21 @@ if (nextTraspBtn) {
         showTimerMessage("resolved");
     });
 
+    // GLOBAL CLICK SOUND (copre link e bottoni)
+    document.addEventListener('click', (e) => {
+        const target = e.target.closest('a, button, [data-sound]')
+        if (!target) return;
+
+        if (target.tagName === 'A' && target.href) {
+            e.preventDefault();
+
+            playPluc();
+
+            setTimeout(() => {
+                window.location.href = target.href;
+            }, 80);
+        } else {
+            playPluc();
+        }
+    });
 });

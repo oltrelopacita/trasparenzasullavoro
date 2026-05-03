@@ -83,6 +83,8 @@
     </div>
 </section>
 
+<script src="sound.js"></script>
+
 <script>
 const screenLoading = document.getElementById('screen-loading');
 const screenIntro = document.getElementById('screen-intro');
@@ -102,11 +104,15 @@ setTimeout(() => {
 }, 5000)
 
 enterBtn.addEventListener('click', () => {
+    console.log("ENTER CLICK");
+    playPluc();
+
     screenLoading.classList.remove('active');
     enterBtn.classList.remove('active');
 });
 
 nextIntro.addEventListener('click', () => {
+    playPluc();
     if (introStep === 0) {
         text1.classList.add('exit');
         text1.classList.remove('active');
@@ -126,6 +132,7 @@ nextIntro.addEventListener('click', () => {
 const arrow = document.querySelector('.arrow-btn');
 if (arrow) {
     arrow.addEventListener('click', () => {
+        playPluc();
         arrow.classList.add('click');
 
         setTimeout(() => {
@@ -141,6 +148,7 @@ const campagnaLink = document.querySelector('#info a');
 const isMobile = window.innerWidth <= 768;
 
 esperienzaLink.addEventListener('click', (e) => {
+    playSwoosh();
     e.preventDefault();
 
     if (isMobile) {
@@ -158,6 +166,7 @@ esperienzaLink.addEventListener('click', (e) => {
 });
 
 campagnaLink.addEventListener('click', (e) => {
+    playSwoosh();
     e.preventDefault();
 
     if (isMobile) {
@@ -174,6 +183,7 @@ campagnaLink.addEventListener('click', (e) => {
     }, 2000);
 });
 </script>
+
 </body>
 </html>
 

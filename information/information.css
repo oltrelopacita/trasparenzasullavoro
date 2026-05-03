@@ -289,11 +289,36 @@ h1 {
   justify-content: center;
   margin-inline: auto;
   padding-bottom: 40px;
+  position: relative;
 }
 
 .motion_vid video {
   width: 100%;
   height: auto;
+}
+
+.video-sound-toggle {
+  position: absolute;
+  bottom: 60px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(43, 43, 43, 0.6);
+  color: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.motion_vid:hover .video-sound-toggle {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .overlay-blur {
