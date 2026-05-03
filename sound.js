@@ -1,70 +1,61 @@
 let soundEnabled = true;
-let audioReady = false;
+let audioCtx;
+let buffers = {};
 
-function unlockAudioGlobal() {
-  if (audioReady) return;
+async function initAudio() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
-  clickSound.play().then(() => {
-    clickSound.pause();
-    clickSound.currentTime = 0;
-    audioReady = true;
-  }).catch(() => {});
+    const files = {
+        click: '/trasparenzasullavoro/suoni/click4.wav',
+        timer: '/trasparenzasullavoro/suoni/timer.wav',
+        timerUrgent: '/trasparenzasullavoro/suoni/timer 10sec.wav',
+        swoosh: '/trasparenzasullavoro/suoni/swoosh4.mp3',
+    };
+
+    for (const [key, url] of Object.entries(files)) {
+        try {
+            const res = await fetch(url);
+            const arrayBuffer = await res.arrayBuffer();
+            buffers[key] = await audioCtx.decodeAudioData(arrayBuffer);
+        } catch (e) {
+            console.warn(`Errore caricamento audio: ${key}`, e);
+        }
+    }
 }
 
-const clickSound = new Audio('/trasparenzasullavoro/suoni/click4.wav');
-clickSound.preload = 'auto';
+function playBuffer(key, { rate = 1, volume = 1 } = {}) {
+    if (!audioCtx || !buffers[key] || !soundEnabled) return;
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffers[key];
+    source.playbackRate.value = rate;
+    const gainNode = audioCtx.createGain();
+    gainNode.gain.value = volume;
+    source.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+    source.start(0);
+}
 
-function unlockAudio() {
-  if (audioReady) return;
-  // "tocca" l'audio per sbloccare il contesto del browser
-  clickSound.play().then(() => {
-    clickSound.pause();
-    clickSound.currentTime = 0;
-    audioReady = true;
-  }).catch(() => {});
+function unlockAudioGlobal() {
+    initAudio();
 }
 
 function playPluc() {
-  if (!soundEnabled) return;
-  unlockAudio(); // prova a sbloccare se non è ancora pronto
-
-  // piccolo delay per dare tempo allo sblocco al primo click
-  setTimeout(() => {
-    clickSound.currentTime = 0;
-    clickSound.play().catch(() => {});
-  }, audioReady ? 0 : 50);
+    if (!soundEnabled) return;
+    playBuffer('click');
 }
 
-
-const timerTick = new Audio('/trasparenzasullavoro/suoni/timer.wav');
-timerTick.preload = 'auto';
-const timerTickUrgent = new Audio('/trasparenzasullavoro/suoni/timer 10sec.wav');
-timerTickUrgent.preload = 'auto';
-
 function playTimerTick() {
-  if (!soundEnabled) return;
-
-  timerTick.currentTime = 0;
-  timerTick.play().catch(() => {});
+    if (!soundEnabled) return;
+    playBuffer('timer');
 }
 
 function playTimerTickUrgent() {
-  if (!soundEnabled) return;
-
-  timerTickUrgent.currentTime = 0;
-  timerTickUrgent.play().catch(() => {});
+    if (!soundEnabled) return;
+    playBuffer('timerUrgent');
 }
 
-
-
-const swooshSound = new Audio('/trasparenzasullavoro/suoni/swoosh4.mp3');
-swooshSound.preload = 'auto';
-
 function playSwoosh() {
-  if (!soundEnabled) return;
-
-  swooshSound.currentTime = 0;
-  swooshSound.playbackRate = 0.7;
-  swooshSound.volume = 0.4;
-  swooshSound.play().catch(() => {});
+    if (!soundEnabled) return;
+    playBuffer('swoosh', { rate: 0.7, volume: 0.4 });
 }
