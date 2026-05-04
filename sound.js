@@ -68,7 +68,7 @@ function playSwoosh() {
     
     const source = audioCtx.createBufferSource();
     source.buffer = buffers['swoosh'];
-    source.playbackRate.value = 0.4;
+    source.playbackRate.value = 0.7;
     
     const gainNode = audioCtx.createGain();
     gainNode.gain.value = 0.4;
