@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('click', unlockAudioGlobal, { once: true });
     // --- Determinazione durata task ---
     let TASK_DURATION;
 
