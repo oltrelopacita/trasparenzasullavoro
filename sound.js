@@ -63,17 +63,5 @@ function playTimerTickUrgent() {
 
 function playSwoosh() {
     if (!soundEnabled) return;
-    if (!audioCtx || !buffers['swoosh']) return;
-    if (audioCtx.state === 'suspended') return;
-    
-    const source = audioCtx.createBufferSource();
-    source.buffer = buffers['swoosh'];
-    source.playbackRate.value = 0.7;
-    
-    const gainNode = audioCtx.createGain();
-    gainNode.gain.value = 0.4;
-    
-    source.connect(gainNode);
-    gainNode.connect(audioCtx.destination);
-    source.start(0);
+    playBuffer('swoosh', { rate: 0.4, volume: 0.4 });
 }
