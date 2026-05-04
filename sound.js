@@ -63,5 +63,5 @@ function playTimerTickUrgent() {
 
 function playSwoosh() {
     if (!soundEnabled) return;
-    playBuffer('swoosh', { rate: 0.7, volume: 0.4 });
+    playBuffer('swoosh', { rate: 0.4, volume: 0.4 });
 }
