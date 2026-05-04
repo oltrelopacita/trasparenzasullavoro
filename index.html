@@ -86,6 +86,9 @@
 <script src="sound.js"></script>
 
 <script>
+
+document.addEventListener('click', unlockAudioGlobal, { once: true });
+
 const screenLoading = document.getElementById('screen-loading');
 const screenIntro = document.getElementById('screen-intro');
 const screenHome = document.getElementById('screen-home');

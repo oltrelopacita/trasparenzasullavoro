@@ -1,16 +1,17 @@
 let soundEnabled = true;
-let audioCtx;
+let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 let buffers = {};
 
-async function initAudio() {
-    if (audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+async function loadBuffers() {
+    const BASE = window.location.hostname.includes('github.io')
+        ? '/trasparenzasullavoro/suoni/'
+        : '/suoni/';
 
     const files = {
-        click: '/trasparenzasullavoro/suoni/click4.wav',
-        timer: '/trasparenzasullavoro/suoni/timer.wav',
-        timerUrgent: '/trasparenzasullavoro/suoni/timer 10sec.wav',
-        swoosh: '/trasparenzasullavoro/suoni/swoosh4.mp3',
+        click: BASE + 'click4.wav',
+        timer: BASE + 'timer.wav',
+        timerUrgent: BASE + 'timer 10sec.wav',
+        swoosh: BASE + 'swoosh4.mp3',
     };
 
     for (const [key, url] of Object.entries(files)) {
@@ -24,8 +25,17 @@ async function initAudio() {
     }
 }
 
+loadBuffers();
+
+function unlockAudioGlobal() {
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
+}
+
 function playBuffer(key, { rate = 1, volume = 1 } = {}) {
     if (!audioCtx || !buffers[key] || !soundEnabled) return;
+    if (audioCtx.state === 'suspended') return;
     const source = audioCtx.createBufferSource();
     source.buffer = buffers[key];
     source.playbackRate.value = rate;
@@ -34,10 +44,6 @@ function playBuffer(key, { rate = 1, volume = 1 } = {}) {
     source.connect(gainNode);
     gainNode.connect(audioCtx.destination);
     source.start(0);
-}
-
-function unlockAudioGlobal() {
-    initAudio();
 }
 
 function playPluc() {
