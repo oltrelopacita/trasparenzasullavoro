@@ -216,6 +216,7 @@ if (nextTraspBtn) {
     if (createBtn) {
         createBtn.addEventListener('click', () => {
             stopMainTimer();
+            stopTraspTimer();
             sessionStorage.setItem("password_done", "true");
             showNonTrasparentAnimation("password", "resolved");
             showTrasparentAnimation("password", "resolved");
@@ -226,7 +227,7 @@ if (nextTraspBtn) {
     // --- Timer trasparente ---
     const timerBarTrasp = document.getElementById('timerBarTrasp');
     const timerSpanTrasp = document.getElementById('timerSpanTrasp');
-    const stopTraspTimer = startTimer(timerBarTrasp, timerSpanTrasp, TASK_DURATION, () => {
+    let stopTraspTimer = startTimer(timerBarTrasp, timerSpanTrasp, TASK_DURATION, () => {
         showNonTrasparentAnimation("password", "timeout");
         showTrasparentAnimation("password", "timeout");
         showTimerMessage("timeout");
@@ -244,6 +245,7 @@ if (nextTraspBtn) {
     // --- Eventi custom ---
     document.addEventListener('sudokuCompleted', () => {
         stopMainTimer();
+        stopTraspTimer();
         sessionStorage.setItem("sudoku_done", "true");
         showNonTrasparentAnimation("sudoku", "resolved");
         showTrasparentAnimation("sudoku", "resolved");
