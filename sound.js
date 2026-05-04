@@ -9,8 +9,8 @@ async function loadBuffers() {
 
     const files = {
         click: BASE + 'click4.wav',
-        timer: BASE + 'timer.wav',
-        timerUrgent: BASE + 'timer 10sec.wav',
+        timer: BASE + 'timer.mp3',
+        timerUrgent: BASE + 'timer 10sec.mp3',
         swoosh: BASE + 'swoosh4.mp3',
     };
 
@@ -63,5 +63,5 @@ function playTimerTickUrgent() {
 
 function playSwoosh() {
     if (!soundEnabled) return;
-    playBuffer('swoosh', { rate: 0.4, volume: 0.4 });
+    playBuffer('swoosh', { rate: 0.7, volume: 0.4 });
 }
