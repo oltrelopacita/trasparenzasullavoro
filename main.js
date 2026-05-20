@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function showTrasparentAnimation(taskType, triggerType) {
         if (!traspOverlay || !primaParte || !secondaParte) return;
 
+        let currentStep = 0;
+        const slides = document.querySelectorAll('#parte1 .slide');
+
         // Reset classi e opacity
         primaParte.style.display = 'none';
         secondaParte.style.display = 'none';
@@ -87,24 +90,46 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const nextTraspBtn = document.getElementById('nextTrasp');
+
 if (nextTraspBtn) {
+    const slides = document.querySelectorAll('#parte1 .slide');
+    let currentStep = 0;
+
     nextTraspBtn.addEventListener('click', () => {
-        if (!primaParte || !secondaParte) return;
-    
-        // 1. fai sparire visivamente la prima parte
-        primaParte.style.opacity = 0;
-    
-        // 2. dopo la dissolvenza (es. 500ms), nascondi primaParte e mostra secondaParte
-        setTimeout(() => {
-            primaParte.style.display = 'none';
-            secondaParte.style.display = 'flex';
-            secondaParte.style.opacity = 0; // parte trasparente
-        }, 500); 
-    
-        // 3. subito dopo (piccolo timeout), fai apparire la seconda parte in dissolvenza
-        setTimeout(() => {
-            secondaParte.style.opacity = 1;
-        }, 1000); // 50ms dopo che display è stato messo a flex
+        if (!slides.length) return;
+
+        const current = slides[currentStep];
+        const next = slides[currentStep + 1];
+
+        if (next) {
+            // esci slide corrente
+            current.style.transform = 'translateX(-100%)';
+            current.style.opacity = '0';
+
+            // entra nuova slide
+            next.style.display = 'flex';
+            next.style.transform = 'translateX(100%)';
+
+            setTimeout(() => {
+                next.style.transform = 'translateX(0)';
+                next.style.opacity = '1';
+            }, 30);
+
+            currentStep++;
+        } else {
+            // fine slides → vai a parte2 (tuo sistema attuale)
+            primaParte.style.opacity = 0;
+
+            setTimeout(() => {
+                primaParte.style.display = 'none';
+                secondaParte.style.display = 'flex';
+                secondaParte.style.opacity = 0;
+            }, 400);
+
+            setTimeout(() => {
+                secondaParte.style.opacity = 1;
+            }, 800);
+        }
     });
 }
 
